@@ -16,6 +16,13 @@ from pathlib import Path
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
+
+#custom start===============================
+from django.contrib.messages import constants as messages
+
+#custom end=================================
+
+
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
@@ -134,3 +141,10 @@ MEDIA_URL= '/media/'
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+#custom start======================================
+MESSAGE_TAG={
+    messages.ERROR:'danger'
+}
+#custom end=================================

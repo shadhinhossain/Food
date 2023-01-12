@@ -1,0 +1,67 @@
+{% extends 'index.html' %}
+{% load static %}
+
+{% block content %}
+<!-- ======= Contact Section ======= -->
+<section id="contact" class="contact">
+        <div class="section-header">
+        <h2>Contact</h2>
+        <p>Need Help? <span>Contact Us</span></p>
+        </div>
+    <div>
+        <div class="container">
+
+            <div class="row justify-content-center">
+            
+                <div class="col-md-6">
+                    
+                    <div class="col-md-12">
+            
+                    {% if messages %}
+                    {% for message in messages %}
+                    <div class="alert alert-{{message.tags}} alert-dismissible fade show" role="alert">
+                    <strong></strong>{{message}}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button><button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                    {% endfor %}
+                    {% endif %}
+                    <form action='/contact' method='post'>
+                    {% csrf_token %}
+                        
+                        <div class="form-group" >
+                        <input type="text" class="form-control" name="name" placeholder="Enter Your Name" required>
+                        </div>
+            
+                        <div class="form-group" >
+                        <input type="email" class="form-control mt-2" name="email" placeholder="Enter Your Email" required>
+                        </div>
+            
+                        <div class="form-group" >
+                        <input type="number" class="form-control mt-2" name="number" placeholder="Enter Your Number" required>
+                        </div>
+            
+                        <div class="form-group text-center" >
+                        <label for="desc" class="text-dark">How can i help you?</label>
+                        <textarea class="form-control mt-2" name="desc" cols="5" rows="3" id="desc"></textarea>
+                        </div>
+            
+                    </br>
+            
+                        <div class="d-grid gap-2" >
+                        <button type="submit" class="btn btn-warning">Contact</button>
+                        </div>
+            
+                    </form>
+            
+                    <div class="col-md-6"></div>
+            
+                    </div>
+                </div>
+            </div>
+            </div>
+        <!--End Contact Form -->
+
+    </div>
+    </section><!-- End Contact Section -->
+
+{% endblock content %}
