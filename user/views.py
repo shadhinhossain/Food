@@ -18,7 +18,12 @@ def home(request):
 def about(request):
     return render(request, "others/about.html")
 
+#==========menu view===========================
+
 def menu(request):
+    if request.method == 'POST':
+        if user is not None:
+            login(request, user)
     return render(request, "others/menu.html")
 
 #=======events view========================

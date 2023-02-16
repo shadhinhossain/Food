@@ -14,4 +14,7 @@ class Contact(models.Model):
 
     def __str__(self):
         return self.email
+
+class Menu(models.Model):
+    Name = models.name = models.CharField(max_length=55)
     

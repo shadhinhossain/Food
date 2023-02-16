@@ -52,25 +52,25 @@
     <nav id="navbar" class="navbar">
     <ul>
         <li><a href="/">Home</a></li>
-        <li><a href="/about">About</a></li>
-        <li><a href="/menu">Menu</a></li>
-        <li><a href="/events">Events</a></li>
-        <li><a href="/chefs">Chefs</a></li>
-        <li><a href="/gallery">Gallery</a></li>
+        <li><a href="{% url 'about' %}">About</a></li>
+        <li><a href="{% url 'menu' %}">Menu</a></li>
+        <li><a href="{% url 'events' %}">Events</a></li>
+        <li><a href="{% url 'chefs' %}">Chefs</a></li>
+        <li><a href="{% url 'gallery' %}">Gallery</a></li>
         <li class="dropdown"><a href="#"><span>Categories</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
         <ul>
-            <li><a href="#">Orders</a></li>
-            <li><a href="#">Drop Down 2</a></li>
-            <li><a href="#">Drop Down 3</a></li>
-            <li><a href="#">Drop Down 4</a></li>
+            <li><a href="{% url 'orders' %}">Orders</a></li>
+            <li><a href="{% url 'details' %}">Details</a></li>
+            <li><a href="{% url 'categories' %}">Categories</a></li>
+            <li><a href="{% url 'feedback' %}">Customer Feedback</a></li>
         </ul>
         </li>
-        <li><a href="/contact">Contact</a></li>
+        <li><a href="{% url 'contact' %}">Contact</a></li>
         
         {% if not request.user.is_authenticated %}
-        <li><a class="nav-link scrollto" href="/login">SignIn</a></li>
+        <li><a class="nav-link scrollto" href="{% url 'login' %}">SignIn</a></li>
         {% else %}
-        <li><a class="nav-link scrollto" href="/logout">Logout</a></li>
+        <li><a class="nav-link scrollto" href="{% url 'logout' %}">Logout</a></li>
         {% endif %}
         
         <li>

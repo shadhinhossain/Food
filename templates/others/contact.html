@@ -25,8 +25,8 @@
                     </div>
                     {% endfor %}
                     {% endif %}
-                    <form action='/contact' method='post'>
-                    {% csrf_token %}
+                    <form action='/contact' method='POST'>
+                        {% csrf_token %}
                         
                         <div class="form-group" >
                         <input type="text" class="form-control" name="name" placeholder="Enter Your Name" required>
