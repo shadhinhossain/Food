@@ -46,7 +46,7 @@
       <a href="" class="logo d-flex align-items-center">
         <!-- Uncomment the line below if you also wish to use an image logo -->
         <img src="{% static 'assets/img/2hamburger.png' %}" alt="">
-      <h3><i><a href="/"><span>Yummy Foods</span></a></i></h3>
+      <h2><i><a href="/"><span>Yummy Foods</span></a></i></h2>
       </a>
 
       <nav id="navbar" class="navbar">
@@ -54,26 +54,27 @@
           <li><a href="/">Home</a></li>
           <li><a href="{% url 'about' %}">About</a></li>
           <li><a href="{% url 'menu' %}">Menu</a></li>
-          <li><a href="{% url 'events' %}">Events</a></li>
-          <li><a href="{% url 'chefs' %}">Chefs</a></li>
           <li><a href="{% url 'gallery' %}">Gallery</a></li>
-          <li class="dropdown"><a href="#"><span>Categories</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
-            <ul>
-              <li><a href="{% url 'orders' %}">Orders</a></li>
-              <li><a href="{% url 'details' %}">Details</a></li>
-              <li><a href="{% url 'categories' %}">Categories</a></li>
-              <li><a href="{% url 'feedback' %}">Customer Feedback</a></li>
-            </ul>
-          </li>
+          <li><a href="{% url 'chefs' %}">Chefs</a></li>
           <li><a href="{% url 'contact' %}">Contact</a></li>
+
+
           {% if not request.user.is_authenticated %}
-          <li><a class="nav-link scrollto" href="{% url 'login' %}">SignIn</a></li>
+          <li><a class="nav-link scrollto" href="{% url 'handlelogin' %}">SignIn</a></li>
           {% else %}
-          <li><a class="nav-link scrollto" href="{% url 'logout' %}">Logout</a></li>
+          <li><a class="nav-link scrollto" href="{% url 'handlelogout' %}">Logout</a></li>
           {% endif %}
+          
+          {% if request.user.is_authenticated %}
           <li>
-          <button type="button" class="btn btn-info">Profile</button>
+          <a href="" type="button" class="btn btn-info">{{request.user.username}}</a>
+        </li>
+          {% else %}
+          <li>
+              <a href="" type="button" class="btn btn-info">Welcome</a>
           </li>
+          {% endif %}
+
         </ul>
       </nav><!-- .navbar -->
 
@@ -158,16 +159,12 @@
 
     <div class="container">
       <div class="copyright">
-        &copy; Copyright <strong><span>Yummy Foods</span></strong>. All Rights Reserved
+      &copy; Copyright <strong><span>Yummy Foods</span></strong>. All Rights Reserved
       </div>
       <div class="credits">
-        <!-- All the links in the footer should remain intact. -->
-        <!-- You can delete the links only if you purchased the pro version. -->
-        <!-- Licensing information: https://bootstrapmade.com/license/ -->
-        <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/yummy-bootstrap-restaurant-website-template/ -->
-        Designed by <a href="">RosTer</a>
+      Designed by <a href="">RosTer</a>
       </div>
-    </div>
+  </div>
 
   </footer><!-- End Footer -->
   <!-- End Footer -->

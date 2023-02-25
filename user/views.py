@@ -2,7 +2,7 @@ from django.shortcuts import render,redirect
 from django.contrib.auth.models import User
 from django.contrib import messages
 from django.contrib.auth import authenticate,login,logout
-from user.models import Contact
+from user.models import Contact,Menu
 
 
 # Create your views here.
@@ -21,29 +21,28 @@ def about(request):
 #==========menu view===========================
 
 def menu(request):
-    if request.method == 'POST':
-        if user is not None:
-            login(request, user)
-    return render(request, "others/menu.html")
-
-#=======events view========================
-
-def events(request):
-    return render(request, "others/events.html")
+    dish=Menu.objects.all()
+    context={'data': dish}
+    return render(request, "others/menu.html", context)
 
 #=======chefs view===========================
+
 
 def chefs(request):
     return render(request, "others/chefs.html")
 
 #========gallery view==========================
 
+
 def gallery(request):
     return render(request, "others/gallery.html")
 
+
 #=========contact view=============================
 
-def contact(request):
+
+
+def contact_us(request):
     if request.method == "POST":
         name=request.POST.get('name')
         email=request.POST.get('email')
