@@ -31,4 +31,24 @@ class Menu(models.Model):
     def __str__(self):
         return self.name
 
-    
+
+class Gallery(models.Model):
+    image = models.ImageField(upload_to='default')
+    added_on = models.DateTimeField(auto_now_add=True)
+    updated_on = models.DateTimeField(auto_now=True)
+
+
+    def __int__(self):
+        return self.id
+
+
+class Chef(models.Model):
+    name = models.CharField(max_length=55)
+    image = models.ImageField(upload_to='default')
+    details = models.CharField(max_length=255)
+    added_on = models.DateTimeField(auto_now_add=True)
+    updated_on = models.DateTimeField(auto_now=True)
+
+
+    def __str__(self):
+        return self.name

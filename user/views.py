@@ -2,7 +2,7 @@ from django.shortcuts import render,redirect
 from django.contrib.auth.models import User
 from django.contrib import messages
 from django.contrib.auth import authenticate,login,logout
-from user.models import Contact,Menu
+from user.models import Contact,Menu,Gallery,Chef
 
 
 # Create your views here.
@@ -29,13 +29,17 @@ def menu(request):
 
 
 def chefs(request):
-    return render(request, "others/chefs.html")
+    chef = Chef.objects.all()
+    context = {'data': chef}
+    return render(request, "others/chefs.html", context)
 
 #========gallery view==========================
 
 
 def gallery(request):
-    return render(request, "others/gallery.html")
+    view = Gallery.objects.all()
+    context = {'data': view}
+    return render(request, "others/gallery.html", context)
 
 
 #=========contact view=============================
